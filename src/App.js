@@ -1,25 +1,58 @@
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom'
 
-function App() {
+const UserProfile = () => {
+  const {username} = useParams()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <h2>Hello, {username}!</h2>
+    <nav>
+        <ul>
+          <Link to='/user/mick'>
+          <li>Mick</li>
+          </Link>
+          <Link to='/user/alice'>
+          <li>Alice</li>
+          </Link>
+          <Link to='/user/steve'>
+          <li>Steve</li>
+          </Link>
+        </ul>
+      </nav>
+    </>
+  )
+} 
+
+const Home = () => {
+  return (
+    <nav>
+        <ul>
+          <Link to='/user/mick'>
+          <li>Mick</li>
+          </Link>
+          <Link to='/user/alice'>
+          <li>Alice</li>
+          </Link>
+          <Link to='/user/steve'>
+          <li>Steve</li>
+          </Link>
+        </ul>
+      </nav>
+  )
 }
 
+const App = () => {
+  return (
+    <Router>
+      <>
+      <Routes>
+      <Route path='/user/:username' element={<UserProfile/>}></Route>
+      <Route path='/' element={<Home />}></Route>
+      </Routes>
+      </>
+    </Router>
+  )
+}
 export default App;
