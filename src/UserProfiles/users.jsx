@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useParams} from 'react-router-dom'
 
-const UserProfile= (props) => {
+const UserProfile= () => {
     const {username} = useParams();
 
 return (
