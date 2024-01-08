@@ -1,15 +1,11 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Routes, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import UserProfile from './UserProfile';
 
 
 function App() {
   function Home() {
     return <h1>Hello</h1>
-  }
-  
-  function UserProfile() {
-    const { username } = useParams();
-    return <p>Hello, {username}!</p>;
   }
 
   return (
